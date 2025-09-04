@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --bg: 255 255 255;
+    --fg: 17 24 39;
+    --muted: 107 114 128;
+    --ring: 99 102 241; /* indigo-500 */
+  }
+  html, body, #root { height: 100%; }
+  body { @apply bg-white text-gray-900 antialiased; }
+}
+
+
+@layer components {
+  .container-p { @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .card { @apply rounded-2xl border border-gray-200 shadow-sm bg-white; }
+  .card-p { @apply p-5 sm:p-6; }
+  .input { @apply w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-gray-900 outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition; }
+  .label { @apply block text-sm font-medium text-gray-700 mb-1; }
+  .help { @apply text-xs text-gray-500; }
+  .error { @apply text-sm text-red-600 mt-1; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-2.5 text-sm font-medium shadow-sm transition; }
+  .btn-primary { @apply bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200; }
+  .btn-ghost { @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50; }
+  .badge { @apply inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700; }
+  .nav-link { @apply text-sm font-medium text-gray-700 hover:text-gray-900 hover:underline underline-offset-4; }
+}
+
+
+@layer utilities {
+  .grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
+
+
+/* Dark mode (opcionális, ha használod a media queryst) */
+@media (prefers-color-scheme: dark) {
+  :root { --bg: 17 24 39; --fg: 229 231 235; --muted: 156 163 175; --ring: 99 102 241; }
+  body { @apply bg-gray-900 text-gray-100; }
+  .card { @apply border-gray-800 bg-gray-900; }
+  .input { @apply bg-gray-900 border-gray-700 text-gray-100 focus:ring-indigo-900/30; }
+  .btn-ghost { @apply bg-gray-900 border-gray-700 text-gray-100 hover:bg-gray-800; }
+  .badge { @apply bg-gray-800 text-gray-200; }
+}
