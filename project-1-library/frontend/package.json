@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fullcalendar/interaction": "^6.1.19",
+    "@fullcalendar/react": "^6.1.19",
     "axios": "^1.11.0",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",

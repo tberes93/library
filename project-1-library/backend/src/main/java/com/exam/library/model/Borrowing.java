@@ -20,7 +20,7 @@ public class Borrowing {
     @Column(name="end_ts", nullable=false)
     private java.time.LocalDateTime end;
     @Column(nullable=false)
-    private String status; // PENDING/CONFIRMED/CANCELLED
+    private String status;
 
     public UUID getId() {
         return id;

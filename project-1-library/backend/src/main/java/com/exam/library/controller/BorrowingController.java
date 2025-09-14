@@ -37,9 +37,15 @@ public class BorrowingController {
         String email = (String)auth.getPrincipal();
         UUID userId = users.findByEmail(email).map(User::getId).orElseThrow();
         b.setUserId(userId);
-        try { return ResponseEntity.ok(service.create(b)); }
-        catch (IllegalArgumentException ex) { return ResponseEntity.status(409).body(ex.getMessage()); }
+        try {
+            return ResponseEntity.ok(service.create(b));
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.status(409).body(ex.getMessage());
+        }
     }
 
-
+    @GetMapping("/book/{bookId}")
+    public ResponseEntity<List<Borrowing>> getBorrowsByBook(@PathVariable UUID bookId) {
+        return ResponseEntity.ok(service.getBorrowsByBook(bookId));
+    }
 }
